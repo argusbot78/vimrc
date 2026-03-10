@@ -1,3 +1,15 @@
+" Quick cheatsheet (server/console workflow)
+"   ,w         save
+"   ,g         Ack search (then ,cc opens quickfix)
+"   ,n / ,p    next/prev quickfix hit
+"   ,nn        toggle NERDTree
+"   ,b         CtrlP buffer picker
+"   ,d         toggle gitgutter
+"   ,a         next ALE problem
+"   F5         strip trailing whitespace
+"   kj         exit insert mode
+" Tip: set let g:amix_plugin_profile = 'full' in this file to load all plugins.
+
 inoremap kj <Esc>
 
 "Remove all trailing whitespace by pressing F5
