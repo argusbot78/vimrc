@@ -15,9 +15,51 @@ set packpath+=~/.vim_runtime
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
+
+" Plugin profile: set g:amix_plugin_profile = 'full' to load everything.
+let g:amix_plugin_profile = get(g:, 'amix_plugin_profile', 'ops')
+
+" Always load forked plugins and local user plugins
 call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
-call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
 call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
+
+if g:amix_plugin_profile ==# 'full'
+  call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
+else
+  " Lean ops profile: prioritize server maintenance + common dev workflows.
+  let s:ops_plugins = [
+        \ 'ack.vim',
+        \ 'ale',
+        \ 'auto-pairs',
+        \ 'bufexplorer',
+        \ 'ctrlp.vim',
+        \ 'dracula',
+        \ 'editorconfig-vim',
+        \ 'lightline-ale',
+        \ 'lightline.vim',
+        \ 'mru.vim',
+        \ 'nerdtree',
+        \ 'open_file_under_cursor.vim',
+        \ 'tlib',
+        \ 'vim-addon-mw-utils',
+        \ 'vim-commentary',
+        \ 'vim-expand-region',
+        \ 'vim-fugitive',
+        \ 'vim-gitgutter',
+        \ 'vim-indent-guides',
+        \ 'vim-indent-object',
+        \ 'vim-lastplace',
+        \ 'vim-repeat',
+        \ 'vim-rhubarb',
+        \ 'vim-snipmate',
+        \ 'vim-snippets',
+        \ 'vim-surround',
+        \ ]
+  for s:plugin in s:ops_plugins
+    call pathogen#infect(s:vim_runtime.'/sources_non_forked/'.s:plugin)
+  endfor
+endif
+
 call pathogen#helptags()
 
 
