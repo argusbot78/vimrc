@@ -77,6 +77,16 @@ ino <C-j> <C-r>=snipMate#TriggerSnippet()<cr>
 snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<cr>
 let g:snipMate = { 'snippet_version' : 1 }
 
+"
+" => tmux navigator (seamless Ctrl-h/j/k/l between Vim and tmux)
+"
+if exists(':TmuxNavigateLeft')
+  nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+  nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+  nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+  nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+endif
+
 
 """"""""""""""""""""""""""""""
 " => Vim grep
