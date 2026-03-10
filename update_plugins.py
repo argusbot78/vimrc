@@ -54,6 +54,7 @@ vim-python-pep8-indent https://github.com/Vimjas/vim-python-pep8-indent
 vim-indent-guides https://github.com/nathanaelkane/vim-indent-guides
 mru.vim https://github.com/vim-scripts/mru.vim
 editorconfig-vim https://github.com/editorconfig/editorconfig-vim
+vim-tmux-navigator https://github.com/christoomey/vim-tmux-navigator
 dracula https://github.com/dracula/vim
 copilot.vim https://github.com/github/copilot.vim
 """.strip()
