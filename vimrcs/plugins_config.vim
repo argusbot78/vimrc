@@ -158,9 +158,12 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " => Ale (syntax checker and linter)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
+\   'bash': ['shellcheck'],
+\   'c': ['clangd'],
+\   'cpp': ['clangd'],
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
-\   'go': ['go', 'golint', 'errcheck']
+\   'sh': ['shellcheck']
 \}
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
